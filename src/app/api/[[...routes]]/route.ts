@@ -1,36 +1,30 @@
-import { Hono } from "hono";
-import { logger } from "hono/logger";
-import { handle } from "hono/vercel";
-import status from "http-status";
+import { NextResponse } from "next/server";
 
-import { errorHandler } from "@/src/lib/error-handlers";
+export const dynamic = "force-dynamic";
 
-import auth from "./auth-routes";
-import blog from "./blog-routes";
-import experience from "./experience-routes";
-import projects from "./project-routes";
-import stack from "./stack-routes";
+function disabledApiResponse() {
+  return NextResponse.json(
+    {
+      success: false,
+      message:
+        "The legacy portfolio API is currently disabled for this public deployment.",
+    },
+    { status: 503 }
+  );
+}
 
-const app = new Hono().basePath("/api");
+export async function GET() {
+  return disabledApiResponse();
+}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const routes = app
-  .route("/auth", auth)
-  .route("/projects", projects)
-  .route("/stack", stack)
-  .route("/experience", experience)
-  .route("/blog", blog);
+export async function POST() {
+  return disabledApiResponse();
+}
 
-app.use(logger());
-app.onError(errorHandler);
-app.notFound((c) => {
-  return c.json({ message: `${c.req.path} is not found` }, status.NOT_FOUND);
-});
+export async function PATCH() {
+  return disabledApiResponse();
+}
 
-const handler = handle(app);
-export const GET = handler;
-export const POST = handler;
-export const PATCH = handler;
-export const DELETE = handler;
-
-export type AppTypes = typeof routes;
+export async function DELETE() {
+  return disabledApiResponse();
+}
