@@ -58,14 +58,20 @@ export default function StackSection() {
                     onClick={() => onOpenEdit(item._id)}
                   >
                     <div className="mx-auto w-25 h-25 flex items-center justify-center">
-                      <Image
-                        src={item.icon}
-                        alt={item.name}
-                        width={100}
-                        height={100}
-                        quality={100}
-                        className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-105"
-                      />
+                      {typeof item.icon === "string" ? (
+                        <Image
+                          src={item.icon}
+                          alt={item.name}
+                          width={100}
+                          height={100}
+                          quality={100}
+                          className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] px-3 text-center text-xs text-white/55">
+                          Icon preview unavailable
+                        </div>
+                      )}
                     </div>
 
                     <div className="mt-5 text-center text-lg">
