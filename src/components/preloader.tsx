@@ -8,7 +8,7 @@ gsap.registerPlugin(useGSAP);
 
 export default function Preloader() {
   const preloaderRef = useRef<HTMLDivElement>(null);
-  const letters = ["N", "E", "V", "O"];
+  const letters = ["B", "S", "T"];
   const numColumns = 10;
 
   useGSAP(
