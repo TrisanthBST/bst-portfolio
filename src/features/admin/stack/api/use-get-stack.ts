@@ -1,9 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 
+import { stackItemType } from "@/src/definitions/stack-validations";
 import { api } from "@/src/lib/hono";
 
+export type StackGroup = {
+  type: string;
+  items: (stackItemType & { _id: string })[];
+};
+
 export function useGetStack(withHidden: boolean = false) {
-  const query = useQuery({
+  const query = useQuery<StackGroup[]>({
     queryKey: ["stack", withHidden],
     queryFn: async () => {
       const res = await api.stack.$get({
@@ -13,7 +19,7 @@ export function useGetStack(withHidden: boolean = false) {
       });
       if (!res.ok) throw new Error("Failed to fetch stack");
       const { data } = await res.json();
-      return data;
+      return data as StackGroup[];
     },
   });
   return query;
