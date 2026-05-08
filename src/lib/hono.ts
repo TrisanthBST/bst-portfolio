@@ -1,6 +1,8 @@
 import { hc } from "hono/client";
 
-import type { AppTypes } from "@/src/app/api/[[...routes]]/route";
+const client = hc(process.env.NEXT_PUBLIC_APP_URL || "/");
 
-const client = hc<AppTypes>(process.env.NEXT_PUBLIC_APP_URL!);
-export const api = client.api;
+// The legacy admin/blog/auth layers are temporarily disabled for the public portfolio
+// deployment, so we keep this client intentionally loose to avoid type failures from
+// internal modules that are no longer active on the public site.
+export const api = client.api as any;
