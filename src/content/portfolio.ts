@@ -32,6 +32,7 @@ export type ProjectItem = {
   liveUrl?: string;
   sourceCode?: string;
   thumbnail?: string;
+  gallery?: string[];
 };
 
 export const siteConfig = {
@@ -63,7 +64,7 @@ export const heroContent = {
   },
   secondaryCta: {
     label: "Get In Touch",
-    href: "#contact",
+    href: "/contact",
   },
   codeLines: [
     "Frontend, full-stack, and mobile development",
@@ -196,6 +197,7 @@ export const projects: ProjectItem[] = [
       "Contributed to the full-stack architecture and delivery of a modern dashboard experience.",
     ],
     sourceCode: "https://github.com/CargoLink-FSD/CargoLink",
+    gallery: [],
   },
 ];
 

@@ -40,7 +40,7 @@ const MENU_LINKS = [
   },
   {
     name: "Contact",
-    url: "#contact",
+    url: "/contact",
   },
 ];
 
@@ -51,6 +51,11 @@ export default function Navbar() {
   const router = useRouter();
 
   const handleClick = (target: string) => {
+    if (target.startsWith("/")) {
+      router.push(target);
+      return;
+    }
+
     const isHome = pathname === "/" || pathname === "";
 
     if (!isHome) {
@@ -77,16 +82,16 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-4">
-        <div className="pointer-events-none absolute top-5 left-5 z-2 md:left-10">
-          <div className="rounded-full border border-white/10 bg-black/40 px-4 py-2 backdrop-blur-md">
+      <nav className="sticky top-0 z-40 h-24 pointer-events-none">
+        <div className="absolute top-5 left-5 z-20 pointer-events-auto md:left-10">
+          <div className="rounded-full border border-white/10 bg-black/55 px-4 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.28)] backdrop-blur-md">
             <p className="font-display text-sm uppercase tracking-[0.22em] text-white/78">
               {siteConfig.brandName}
             </p>
           </div>
         </div>
         <button
-          className={cn("group absolute top-5 right-5 z-2 size-12 cursor-pointer md:right-10")}
+          className={cn("group absolute top-5 right-5 z-20 size-12 cursor-pointer pointer-events-auto md:right-10")}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span

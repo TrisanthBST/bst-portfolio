@@ -1,8 +1,8 @@
 import { ArrowLeft, Code, ExternalLink } from "lucide-react";
-import Image from "next/image";
 
 import { getProjectBySlug } from "@/src/content/portfolio";
 
+import ProjectGallery from "./project-gallery";
 import TransitionLink from "./transition-link";
 
 interface Props {
@@ -14,7 +14,7 @@ export default function ProjectDetails({ id }: Props) {
 
   if (!project) {
     return (
-      <section className="px-6 pt-5 pb-14 md:px-0">
+      <section className="px-6 pt-28 pb-14 md:px-0">
         <div className="container">
           <TransitionLink href="/" className="group mb-16 inline-flex h-12 items-center gap-2">
             <ArrowLeft className="transition-all duration-300 group-hover:-translate-x-1 group-hover:text-orange-400" />
@@ -30,9 +30,12 @@ export default function ProjectDetails({ id }: Props) {
   }
 
   return (
-    <section className="px-6 pt-5 pb-14 md:px-0">
+    <section className="px-6 pt-28 pb-14 md:px-0">
       <div className="container">
-        <TransitionLink href="/" className="group mb-16 inline-flex h-12 items-center gap-2">
+        <TransitionLink
+          href="/"
+          className="group mb-16 inline-flex h-12 items-center gap-2 rounded-full border border-white/10 bg-black/45 px-5 backdrop-blur-sm"
+        >
           <ArrowLeft className="transition-all duration-300 group-hover:-translate-x-1 group-hover:text-orange-400" />
           Back
         </TransitionLink>
@@ -98,38 +101,7 @@ export default function ProjectDetails({ id }: Props) {
           </aside>
         </div>
 
-        <div className="relative mt-14 aspect-[16/9] overflow-hidden rounded-[2rem] border border-white/10 bg-black/40">
-          {project.thumbnail ? (
-            <>
-              <Image
-                src={project.thumbnail}
-                alt={`${project.name} preview`}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-black via-black/15 to-transparent" />
-            </>
-          ) : (
-            <div className="flex h-full flex-col justify-between bg-linear-to-br from-slate-900 via-black to-sky-950 p-8 sm:p-12">
-              <div className="flex items-center justify-between">
-                <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs uppercase tracking-[0.24em] text-white/65">
-                  Screenshot Placeholder
-                </span>
-                <span className="size-24 rounded-full border border-orange-400/20 bg-orange-400/10 blur-md" />
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.22em] text-orange-400">
-                  Replace with your real CargoLink thumbnail
-                </p>
-                <p className="mt-4 max-w-xl font-display text-3xl leading-tight text-white sm:text-5xl">
-                  The case study layout is ready for your actual project screenshots.
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
+        <ProjectGallery images={project.gallery} title={project.name} />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
