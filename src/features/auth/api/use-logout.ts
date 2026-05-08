@@ -1,10 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
-import { InferResponseType } from "hono";
 import { toast } from "sonner";
 
 import { api } from "@/src/lib/hono";
 
-type ResponseType = InferResponseType<typeof api.auth.logout.$post>;
+type ResponseType = {
+  message?: string;
+};
 
 export function useLogout() {
   const mutation = useMutation<ResponseType, Error>({

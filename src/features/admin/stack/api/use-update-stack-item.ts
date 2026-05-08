@@ -1,16 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferResponseType } from "hono";
 import { toast } from "sonner";
 
 import { stackFormValues } from "@/src/definitions/stack-validations";
-import { api } from "@/src/lib/hono";
-
-type ResponseType = InferResponseType<(typeof api.stack)[":id"]["$patch"]>;
 
 export function useUpdateStackItem(id?: string) {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (values: stackFormValues): Promise<ResponseType> => {
+    mutationFn: async (values: stackFormValues): Promise<any> => {
       const formData = new FormData();
       formData.append("name", values.name);
       formData.append("icon", values.icon);

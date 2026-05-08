@@ -1,16 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferResponseType } from "hono";
 import { toast } from "sonner";
 
 import { blogFormValues } from "@/src/definitions/blog-validation";
-import { api } from "@/src/lib/hono";
-
-type ResponseType = InferResponseType<(typeof api.blog)[":id"]["$patch"]>;
 
 export function useUpdatePost(id?: string) {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (values: blogFormValues): Promise<ResponseType> => {
+    mutationFn: async (values: blogFormValues): Promise<any> => {
       const formData = new FormData();
       formData.append("title", values.title);
       formData.append("summary", values.summary);

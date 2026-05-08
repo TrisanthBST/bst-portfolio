@@ -1,15 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
-import { InferRequestType, InferResponseType } from "hono";
 import { toast } from "sonner";
 
 import { api } from "@/src/lib/hono";
 
-type ResponseType = InferResponseType<
-  (typeof api.auth)["update-password"]["$patch"]
->;
-type RequestType = InferRequestType<
-  (typeof api.auth)["update-password"]["$patch"]
->["json"];
+type ResponseType = {
+  success?: boolean;
+  message: string;
+};
+
+type RequestType = {
+  passwordCurrent: string;
+  password: string;
+  passwordConfirm: string;
+};
 
 export function useUpdatePassword() {
   const mutation = useMutation<ResponseType, Error, RequestType>({

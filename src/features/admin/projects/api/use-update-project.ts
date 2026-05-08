@@ -1,16 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferResponseType } from "hono";
 import { toast } from "sonner";
 
 import { projectFormValues } from "@/src/definitions/projects-validations";
-import { api } from "@/src/lib/hono";
-
-type ResponseType = InferResponseType<(typeof api.projects)[":id"]["$patch"]>;
 
 export function useUpdateProject(id?: string) {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (values: projectFormValues): Promise<ResponseType> => {
+    mutationFn: async (values: projectFormValues): Promise<any> => {
       const formData = new FormData();
 
       formData.append("name", values.name);

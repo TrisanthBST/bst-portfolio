@@ -1,15 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferResponseType } from "hono";
 import { toast } from "sonner";
 
 import { projectFormValues } from "@/src/definitions/projects-validations";
-import { api } from "@/src/lib/hono";
-
-type ResponseType = InferResponseType<typeof api.projects.$post>;
 
 export function useCreateProject() {
   const queryClient = useQueryClient();
-  return useMutation<ResponseType, Error, projectFormValues>({
+  return useMutation<any, Error, projectFormValues>({
     mutationFn: async (values) => {
       const formData = new FormData();
 
