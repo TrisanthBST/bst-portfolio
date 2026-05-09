@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useState, type TouchEvent } from "react";
 
@@ -168,41 +168,59 @@ export default function Project({ index, project }: Props) {
 
             {previewImages.length > 0 ? (
               <div
-                className="relative z-10 mt-8 h-[280px] sm:h-[300px]"
+                className="relative z-10 mt-8 h-[280px] [perspective:1200px] sm:h-[300px]"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
               >
-                {previewImages.map((image, imageIndex) => (
-                  <div
-                    className="absolute overflow-hidden rounded-2xl border border-white/15 bg-white/[0.04] shadow-[0_14px_40px_rgba(0,0,0,0.45)] transition-all duration-700 motion-reduce:transition-none"
-                    key={image}
-                    style={{
-                      top: `${imageIndex * 26}px`,
-                      left: `${imageIndex * 22}px`,
-                      width: imageIndex === 0 ? "90%" : imageIndex === 1 ? "82%" : "74%",
-                      height: imageIndex === 0 ? "250px" : imageIndex === 1 ? "220px" : "190px",
-                      zIndex: 30 - imageIndex,
-                      transform:
-                        imageIndex === 0
-                          ? "rotate(-2deg)"
-                          : imageIndex === 1
-                            ? "rotate(1.5deg)"
-                            : "rotate(-1deg)",
-                    }}
-                  >
-                    <Image
-                      src={image}
-                      alt={`${project.name} screen ${imageIndex + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-700 hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                      priority={index === 0 && imageIndex === 0}
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/10" />
-                  </div>
-                ))}
+                <div className="absolute inset-0 rounded-[1.8rem] border border-white/8 bg-black/10" />
+                {previewImages.map((image, imageIndex) => {
+                  const isPrimary = imageIndex === 0;
+                  return (
+                    <div
+                      className={`absolute overflow-hidden rounded-2xl border bg-white/[0.04] shadow-[0_14px_40px_rgba(0,0,0,0.45)] transition-all duration-700 motion-reduce:transition-none ${
+                        isPrimary
+                          ? "border-white/30 ring-1 ring-sky-300/25 [animation:float2_7s_ease-in-out_infinite] motion-reduce:animate-none"
+                          : "border-white/15"
+                      }`}
+                      key={image}
+                      style={{
+                        top: `${imageIndex * 26}px`,
+                        left: `${imageIndex * 22}px`,
+                        width: imageIndex === 0 ? "90%" : imageIndex === 1 ? "82%" : "74%",
+                        height: imageIndex === 0 ? "250px" : imageIndex === 1 ? "220px" : "190px",
+                        zIndex: 30 - imageIndex,
+                        transform:
+                          imageIndex === 0
+                            ? "rotate(-2deg) translateZ(12px)"
+                            : imageIndex === 1
+                              ? "rotate(1.5deg)"
+                              : "rotate(-1deg)",
+                      }}
+                    >
+                      {isPrimary ? (
+                        <div className="absolute top-0 right-0 left-0 z-20 flex h-7 items-center gap-1.5 border-b border-white/12 bg-black/45 px-3 backdrop-blur-md">
+                          <span className="size-1.5 rounded-full bg-rose-400/90" />
+                          <span className="size-1.5 rounded-full bg-amber-300/90" />
+                          <span className="size-1.5 rounded-full bg-emerald-400/90" />
+                          <span className="ml-2 h-3 w-20 rounded-full bg-white/12 sm:w-32" />
+                        </div>
+                      ) : null}
+                      <Image
+                        src={image}
+                        alt={`${project.name} screen ${imageIndex + 1}`}
+                        fill
+                        className={`object-cover transition-transform duration-700 hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none ${
+                          isPrimary ? "pt-7" : ""
+                        }`}
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                        priority={index === 0 && imageIndex === 0}
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/10" />
+                    </div>
+                  );
+                })}
 
                 {allPreviewImages.length > 1 ? (
                   <>
