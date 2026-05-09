@@ -13,7 +13,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
+<<<<<<< HEAD
     <div className="container px-5 sm:px-6 md:px-0">
+=======
+    <div className="container px-8 md:px-0">
+>>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
       <Banner />
       <AboutMe />
       <Skills />

@@ -113,6 +113,7 @@ body {
   }
 }
 
+<<<<<<< HEAD
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -124,6 +125,8 @@ body {
   }
 }
 
+=======
+>>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
 .markdown-body pre,
 .markdown-body pre * {
   white-space: pre-wrap !important;

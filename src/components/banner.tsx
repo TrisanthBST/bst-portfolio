@@ -43,7 +43,11 @@ export default function Banner() {
             <p className="hero-reveal mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.24em] text-white/70">
               {heroContent.eyebrow}
             </p>
+<<<<<<< HEAD
             <h1 className="hero-reveal font-display text-4xl leading-[0.96] font-semibold text-white sm:text-6xl lg:text-8xl">
+=======
+            <h1 className="hero-reveal font-display text-5xl leading-[0.95] font-semibold text-white sm:text-6xl lg:text-8xl">
+>>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
               {heroContent.headline}
             </h1>
             <p className="hero-reveal mt-6 max-w-2xl text-lg text-white/72 sm:text-xl">
@@ -54,11 +58,19 @@ export default function Banner() {
               text={heroContent.intro}
             />
 
+<<<<<<< HEAD
             <div className="hero-reveal mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Magnet magnetStrength={2}>
                 <Button
                   href={heroContent.primaryCta.href}
                   className="rounded-full border border-orange-400/30 bg-orange-500 px-6 text-sm tracking-[0.16em] text-black transition-transform duration-300 hover:translate-y-[-2px] hover:text-black sm:px-7 sm:tracking-[0.22em]"
+=======
+            <div className="hero-reveal mt-10 flex flex-col gap-4 sm:flex-row">
+              <Magnet magnetStrength={2}>
+                <Button
+                  href={heroContent.primaryCta.href}
+                  className="rounded-full border border-orange-400/30 bg-orange-500 px-7 text-sm tracking-[0.22em] text-black transition-transform duration-300 hover:translate-y-[-2px] hover:text-black"
+>>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
                 >
                   {heroContent.primaryCta.label}
                   <ArrowRight size={16} />
@@ -67,7 +79,11 @@ export default function Banner() {
 
               <Button
                 href={`mailto:${siteConfig.email}`}
+<<<<<<< HEAD
                 className="rounded-full border border-white/12 bg-white/5 px-6 text-sm tracking-[0.16em] text-white backdrop-blur-sm hover:bg-white hover:text-black sm:px-7 sm:tracking-[0.22em]"
+=======
+                className="rounded-full border border-white/12 bg-white/5 px-7 text-sm tracking-[0.22em] text-white backdrop-blur-sm hover:bg-white hover:text-black"
+>>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
               >
                 {heroContent.secondaryCta.label}
                 <Mail size={16} />
