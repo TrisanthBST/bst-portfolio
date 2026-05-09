@@ -116,11 +116,7 @@ export default function Navbar() {
       </nav>
 
       <div
-<<<<<<< HEAD
         className={cn("overlay fixed inset-0 z-[2] bg-black/70 transition-all duration-150", {
-=======
-        className={cn("overlay fixed inset-0 z-2 bg-black/70 transition-all duration-150", {
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
           "pointer-events-none invisible opacity-0": !isMenuOpen,
         })}
         onClick={() => setIsMenuOpen(false)}
@@ -128,11 +124,7 @@ export default function Navbar() {
 
       <div
         className={cn(
-<<<<<<< HEAD
           "fixed top-0 right-0 z-[3] h-svh w-[500px] max-w-[calc(100vw-2rem)] translate-x-full transform gap-y-14 overflow-hidden transition-transform duration-700",
-=======
-          "fixed top-0 right-0 z-3 h-svh w-[500px] max-w-[calc(100vw-3rem)] translate-x-full transform gap-y-14 overflow-hidden transition-transform duration-700",
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
           "flex flex-col py-10 lg:justify-center",
           { "translate-x-0": isMenuOpen }
         )}

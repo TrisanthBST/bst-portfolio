@@ -197,7 +197,6 @@ export const projects: ProjectItem[] = [
       "Contributed to the full-stack architecture and delivery of a modern dashboard experience.",
     ],
     sourceCode: "https://github.com/CargoLink-FSD/CargoLink",
-<<<<<<< HEAD
     thumbnail: "/projects/cargolink/cargolink-ecb899e9-877d-4307-9e5c-f4e2a60ddd5d.png",
     gallery: [
       "/projects/cargolink/cargolink-ecb899e9-877d-4307-9e5c-f4e2a60ddd5d.png",
@@ -208,9 +207,6 @@ export const projects: ProjectItem[] = [
       "/projects/cargolink/cargolink-c7233487-057f-4a7a-8348-6adc356c15c1.png",
       "/projects/cargolink/cargolink-0b346165-24be-4c3a-97dd-65f47b70ae94.png",
     ],
-=======
-    gallery: [],
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
   },
 ];
 

@@ -1,13 +1,8 @@
-<<<<<<< HEAD
- "use client";
+"use client";
 
-import { ArrowLeft, ArrowRight, ArrowUpRight, Github } from "lucide-react";
-import Image from "next/image";
-import { useEffect, useMemo, useState, type TouchEvent } from "react";
-=======
 import { ArrowUpRight, Github } from "lucide-react";
 import Image from "next/image";
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
+import { useEffect, useMemo, useState, type TouchEvent } from "react";
 
 import TransitionLink from "@/src/components/transition-link";
 import { ProjectItem } from "@/src/content/portfolio";
@@ -18,7 +13,6 @@ type Props = {
 };
 
 export default function Project({ index, project }: Props) {
-<<<<<<< HEAD
   const allPreviewImages = useMemo(
     () =>
       project.gallery?.length
@@ -87,9 +81,6 @@ export default function Project({ index, project }: Props) {
       }),
     [allPreviewImages, slideIndex]
   );
-
-=======
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
   return (
     <article className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
       <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(340px,420px)]">
@@ -139,11 +130,7 @@ export default function Project({ index, project }: Props) {
           <div className="mt-10 flex flex-wrap gap-4">
             <TransitionLink
               href={`/projects/${project.slug}`}
-<<<<<<< HEAD
               className="inline-flex items-center gap-2 rounded-full border border-orange-400/25 bg-orange-500 px-5 py-3 text-xs font-medium tracking-[0.14em] text-black uppercase transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none sm:text-sm sm:tracking-[0.18em]"
-=======
-              className="inline-flex items-center gap-2 rounded-full border border-orange-400/25 bg-orange-500 px-5 py-3 text-sm font-medium tracking-[0.18em] text-black uppercase transition-transform duration-300 hover:-translate-y-0.5"
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
             >
               View Case Study
               <ArrowUpRight size={16} />
@@ -154,11 +141,7 @@ export default function Project({ index, project }: Props) {
                 href={project.sourceCode}
                 target="_blank"
                 rel="noreferrer noopener"
-<<<<<<< HEAD
                 className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-xs font-medium tracking-[0.14em] text-white uppercase transition-colors hover:bg-white hover:text-black active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none sm:text-sm sm:tracking-[0.18em]"
-=======
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-medium tracking-[0.18em] text-white uppercase transition-colors hover:bg-white hover:text-black"
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
               >
                 Source Code
                 <Github size={16} />
@@ -168,7 +151,6 @@ export default function Project({ index, project }: Props) {
         </div>
 
         <div className="order-1 border-b border-white/10 lg:order-2 lg:border-b-0 lg:border-l">
-<<<<<<< HEAD
           <div className="relative h-full min-h-[420px] overflow-hidden bg-linear-to-br from-slate-950 via-[#040814] to-[#03040a] p-5 sm:p-8">
             <div className="absolute -top-10 -left-8 h-44 w-44 rounded-full bg-sky-500/25 blur-3xl [animation:float_12s_ease-in-out_infinite]" />
             <div className="absolute -right-10 top-24 h-52 w-52 rounded-full bg-violet-500/20 blur-3xl [animation:floatReverse_13s_ease-in-out_infinite]" />
@@ -278,38 +260,6 @@ export default function Project({ index, project }: Props) {
                 dashboard UI.
               </p>
             </div>
-=======
-          <div className="relative h-full min-h-[280px] overflow-hidden bg-linear-to-br from-slate-900 via-black to-sky-950">
-            {project.thumbnail ? (
-              <>
-                <Image
-                  src={project.thumbnail}
-                  alt={`${project.name} preview`}
-                  fill
-                  className="object-cover opacity-88 transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  priority={index === 0}
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent" />
-              </>
-            ) : (
-              <div className="flex h-full min-h-[280px] flex-col justify-between p-8">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs uppercase tracking-[0.24em] text-white/65">
-                    Case Study Preview
-                  </span>
-                  <span className="size-20 rounded-full border border-sky-400/30 bg-sky-400/10 blur-sm" />
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-[0.22em] text-orange-400">CargoLink</p>
-                  <p className="mt-4 max-w-sm font-display text-3xl leading-tight text-white">
-                    Real-time logistics platform with admin workflows and secure shipment
-                    management.
-                  </p>
-                </div>
-              </div>
-            )}
->>>>>>> 1057804aa67347f960b68b38a29324133b3fe547
           </div>
         </div>
       </div>
